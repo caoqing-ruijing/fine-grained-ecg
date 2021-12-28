@@ -1,28 +1,35 @@
 # Code for fine-grained-ecg
-The official code for "Accurate diagnoses of 12-lead electrocardiograms using artificial intelligence: A fine-grained multi-label model for diagnostic assistance" by Zizhu Liu, Qing Cao, Qi Jin,Jingsheng Lin, Gang Lv and Kang Chen
-
-This project test in `Tensorflow=1.15` and contains model only.
+The official code for "Accurate diagnoses of 12-lead electrocardiograms using artificial intelligence: A attention aggregation multi-label model for diagnostic assistance" by Zizhu Liu, Qing Cao, Qi Jin,Jingsheng Lin, Gang Lv and Kang Chen
+This project test in Tensorflow and contains model only.
 
 ### Description
 
-This model contains `cnn` and `rnn` parts, 
-![model](./model_draw.png)
+##### model overall
+![model](./model_pngs/model_draw.png)
 
-To call it, 
+##### attention maps
+![model](./model_pngs/model_draw1.png)
+
+##### aggregation layer
+![model](./model_pngs/model_draw2.png)
+
+
+Example:
 ```
-#chose config file first
-config_path = 'resnet34_gru_spatial_hidden_concat_center_attn5part_multi_head_conv4_rgb192x480.json'
+from my_utils.default_config import dict2config, update_and_save_cfg, CONFIG_DICT
+from models import networks
 
-cfg_dict = update_and_save_cfg(CONFIG_DICT, config_path,
-                                save_cfg=not st, date=not st)
+# chose config file first
+config_path = 'AA_multi_label.json'
+cfg_dict = update_and_save_cfg(CONFIG_DICT, config_path, save_cfg=False, date=False)
 cfg = dict2config(cfg_dict)
-main(cfg)
 
 # call the model
-encoder, decoder = networks.build_model(cfg)
-
+model = networks.build_model(cfg)
 ```
 
-there are train and val example `in load_model.py`
+
+
+
 
 
