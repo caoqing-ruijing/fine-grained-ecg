@@ -5,13 +5,13 @@ This project test in Tensorflow and contains model only.
 ### Description
 
 ##### model overall
-![model](./model_pngs/model_draw.png)
+![model](model_pngs/model_draw.png)
 
 ##### attention maps
-![model](./model_pngs/model_draw1.png)
+![model](model_pngs/model_draw1.png)
 
 ##### aggregation layer
-![model](./model_pngs/model_draw2.png)
+![model](model_pngs/model_draw2.png)
 
 
 Example:
